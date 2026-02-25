@@ -67,7 +67,7 @@ export default function HomePage() {
                         </p>
 
                         <Link
-                            href="/apply"
+                            href="/join"
                             className="flex items-center justify-center border border-white bg-[#171717] text-white text-center hover:bg-white hover:text-black"
                             style={{
                                 width: "clamp(150px, 18.4vw, 235px)",
@@ -189,7 +189,7 @@ export default function HomePage() {
                     </p>
                     <div className="mt-[4%]">
                         <Link
-                            href="/apply"
+                            href="/join"
                             className="flex items-center justify-center border border-white bg-[#171717] text-white text-center hover:bg-white hover:text-black"
                             style={{
                                 width: "clamp(150px, 18.4vw, 235px)",
@@ -213,9 +213,9 @@ export default function HomePage() {
                             <div className="flex flex-col gap-[20px] text-white/50 mt-[16px]"
                                 style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>
                                 <Link href="/" className="hover:text-white">Home</Link>
+                                <Link href="/join" className="hover:text-white">Join</Link>
                                 <Link href="/about" className="hover:text-white">About</Link>
                                 <Link href="/projects" className="hover:text-white">Projects</Link>
-                                <Link href="/apply" className="hover:text-white">Apply</Link>
                             </div>
                         </div>
 
@@ -241,7 +241,7 @@ export default function HomePage() {
                                 style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>Join Our Team</p>
                             <div className="mt-[16px]">
                                 <Link
-                                    href="/apply"
+                                    href="/Join"
                                     className="inline-flex items-center justify-center border border-white/50 bg-[#171717] text-white/50 text-center hover:text-white hover:border-white"
                                     style={{
                                         width: "clamp(100px, 11.4vw, 146px)",

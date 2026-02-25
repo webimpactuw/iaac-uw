@@ -1,35 +1,48 @@
 import Link from "next/link";
 
 export default function Navbar() {
-    return (
-        <nav className="sticky top-0 z-50 bg-black w-full" style={{ height: "clamp(50px, 6.25vw, 80px)" }}>
-            <div className="relative h-full w-full">
-                <Link href="/" className="absolute left-[5.9%] top-1/2 -translate-y-1/2">
-                    <img src="/logo-trimmed.jpg" alt="IAAC Logo"
-                        style={{ height: "clamp(28px, 3.36vw, 43px)" }} />
-                </Link>
+  return (
+    <nav className="sticky top-0 z-50 w-full bg-black">
+      <div
+        className="mx-auto flex items-center"
+        style={{
+          width: "100%",
+          maxWidth: "1440px",
+          height: "60px",
+          paddingLeft: "32px",
+          paddingRight: "32px",
+        }}
+      >
+        {/*Logo*/}
+        <Link href="/" className="flex items-center">
+          <img src="/newiaaclogo.svg" alt="IAAC Logo" style={{ height: "35px" }} />
+        </Link>
 
-                <Link href="/"
-                    className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center text-white text-center font-normal hover:text-gray-300"
-                    style={{ left: "35.1%", width: "15.6%", fontSize: "clamp(12px, 1.56vw, 20px)" }}>
-                    HOME
-                </Link>
-                <Link href="/about"
-                    className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center text-white text-center font-normal hover:text-gray-300"
-                    style={{ left: "50.7%", width: "15.6%", fontSize: "clamp(12px, 1.56vw, 20px)" }}>
-                    ABOUT
-                </Link>
-                <Link href="/projects"
-                    className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center text-white text-center font-normal hover:text-gray-300"
-                    style={{ left: "66.3%", width: "15.6%", fontSize: "clamp(12px, 1.56vw, 20px)" }}>
-                    PROJECTS
-                </Link>
-                <Link href="/apply"
-                    className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center text-white text-center font-normal hover:text-gray-300"
-                    style={{ left: "82%", width: "15.6%", fontSize: "clamp(12px, 1.56vw, 20px)" }}>
-                    APPLY
-                </Link>
-            </div>
-        </nav>
-    );
+        <div className="flex-1 flex items-center justify-end">
+          <div className="flex items-center" style={{ gap: "40px" }}>
+            {[
+              { href: "/", label: "HOME" },
+              { href: "/join", label: "JOIN" },
+              { href: "/about", label: "ABOUT" },
+              { href: "/projects", label: "PROJECTS" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-white hover:text-gray-300 flex items-center justify-center"
+                style={{
+                  width: "160px",
+                  height: "35px",
+                  fontSize: "16px",
+                  letterSpacing: "0px",
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
 }
