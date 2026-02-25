@@ -20,7 +20,6 @@ export default function AboutPage() {
                 <div className="w-full max-w-5xl mb-16">
                     <h2 className="text-2xl font-bold mb-8">Project 1</h2>
                     <div className="grid grid-cols-2 gap-8 mb-8">
-                        {/* Team Member 1 */}
                         <div className="flex gap-6">
                             <div className="w-24 h-24 bg-gray-400 rounded-full flex-shrink-0"></div>
                             <div className="flex flex-col justify-center">
@@ -28,7 +27,6 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        {/* Team Member 2 */}
                         <div className="flex gap-6">
                             <div className="w-24 h-24 bg-gray-400 rounded-full flex-shrink-0"></div>
                             <div className="flex flex-col justify-center">
@@ -36,7 +34,6 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        {/* Team Member 3 */}
                         <div className="flex gap-6">
                             <div className="w-24 h-24 bg-gray-400 rounded-full flex-shrink-0"></div>
                             <div className="flex flex-col justify-center">
@@ -44,7 +41,6 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        {/* Team Member 4 */}
                         <div className="flex gap-6">
                             <div className="w-24 h-24 bg-gray-400 rounded-full flex-shrink-0"></div>
                             <div className="flex flex-col justify-center">
@@ -58,7 +54,6 @@ export default function AboutPage() {
                 <div className="w-full max-w-5xl">
                     <h2 className="text-2xl font-bold mb-8">Project 2</h2>
                     <div className="grid grid-cols-2 gap-8">
-                        {/* Team Member 5 */}
                         <div className="flex gap-6">
                             <div className="w-24 h-24 bg-gray-400 rounded-full flex-shrink-0"></div>
                             <div className="flex flex-col justify-center">
@@ -66,7 +61,6 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        {/* Team Member 6 */}
                         <div className="flex gap-6">
                             <div className="w-24 h-24 bg-gray-400 rounded-full flex-shrink-0"></div>
                             <div className="flex flex-col justify-center">
@@ -74,7 +68,6 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        {/* Team Member 7 */}
                         <div className="flex gap-6">
                             <div className="w-24 h-24 bg-gray-400 rounded-full flex-shrink-0"></div>
                             <div className="flex flex-col justify-center">
@@ -82,7 +75,6 @@ export default function AboutPage() {
                             </div>
                         </div>
 
-                        {/* Team Member 8 */}
                         <div className="flex gap-6">
                             <div className="w-24 h-24 bg-gray-400 rounded-full flex-shrink-0"></div>
                             <div className="flex flex-col justify-center">
@@ -92,8 +84,6 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
-
-            
 
         </div>
         <Footer />
