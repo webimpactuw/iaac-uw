@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef} from "react";
 
 export default function HomePage() {
     const projects = [
@@ -22,6 +22,12 @@ export default function HomePage() {
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
+    const heroRef = useRef(null);
+    const rafRef = useRef(0);
+    const targetRef = useRef({ x: 0, y: 0 });
+
+    const [parallax, setParallax] = useState({ x: 0, y: 0 });
+    const [heroReady, setHeroReady] = useState(false);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -29,6 +35,41 @@ export default function HomePage() {
         }, 5000);
         return () => clearInterval(timer);
     }, []);
+
+    useEffect(() => {
+        setHeroReady(true);
+
+        function onMove(e) {
+            const el = heroRef.current;
+            if (!el) return;
+
+            const rect = el.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+
+            const nx = (e.clientX - cx) / (rect.width / 2);
+            const ny = (e.clientY - cy) / (rect.height / 2);
+
+            targetRef.current = {
+            x: Math.max(-1, Math.min(1, nx)),
+            y: Math.max(-1, Math.min(1, ny)),
+            };
+
+            if (rafRef.current !== 0) return;
+            rafRef.current = window.requestAnimationFrame(() => {
+            rafRef.current = 0;
+            setParallax(targetRef.current);
+            });
+        }
+
+        const el = heroRef.current;
+        if (el) el.addEventListener("mousemove", onMove);
+
+        return () => {
+            if (el) el.removeEventListener("mousemove", onMove);
+            if (rafRef.current) window.cancelAnimationFrame(rafRef.current);
+        };
+        }, []);
 
     function nextSlide() {
         setCurrentSlide((prev) => (prev + 1) % projects.length);
@@ -39,47 +80,70 @@ export default function HomePage() {
 
     return (
         <div className="bg-[#191919] w-full">
+      {/* HERO (animated layered) */}
+        <section ref={heroRef} className="relative w-full h-screen overflow-hidden bg-black">
+        {/* Sky */}
+        <img
+            src="/sky.png"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+            transform: `translate(${parallax.x * 6}px, ${parallax.y * 4}px) scale(1.03)`,
+            transition: "transform 60ms linear",
+            }}
+        />
 
-            {/* hero */}
-            <section className="relative bg-[#191919]" style={{ paddingTop: "62.6%" }}>
-                <div className="absolute inset-0">
-                    <div className="absolute left-[50%] top-[15.8%] w-[44.1%] h-[73.2%]">
-                        <img
-                            src="/hero-placeholder.svg"
-                            alt="Hero placeholder"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
+        {/* Background clouds */}
+        <img
+            src="/background.png"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            style={{
+            transform: `translate(${parallax.x * 10}px, ${parallax.y * 8}px) scale(1.03)`,
+            opacity: heroReady ? 1 : 0,
+            transition: "opacity 900ms ease, transform 60ms linear",
+            }}
+        />
 
-                    <div className="absolute left-[7.1%] top-[38.5%] flex flex-col" style={{ gap: "18px" }}>
-                        <p style={{
-                            width: "513px",
-                            height: "94px",
-                            color: "#FFF",
-                            fontFamily: "'Droid Sans', sans-serif",
-                            fontSize: "40px",
-                            fontStyle: "normal",
-                            fontWeight: 400,
-                            lineHeight: "normal",
-                            letterSpacing: "0px"
-                        }}>
-                            INSTITUTE FOR ADVANCED AEROSPACE CONCEPTS
-                        </p>
+        {/* Foreground rocket + clouds */}
+        <img
+            src="/foreground.png"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            style={{
+            transform: heroReady
+                ? `translate(${parallax.x * 16}px, ${parallax.y * 12}px) scale(1.03)`
+                : "translate(0px, 28px) scale(1.03)",
+            opacity: heroReady ? 1 : 0,
+            transition: "opacity 900ms ease, transform 900ms ease",
+            }}
+        />
 
-                        <Link
-                            href="/join"
-                            className="flex items-center justify-center border border-white bg-[#171717] text-white text-center hover:bg-white hover:text-black"
-                            style={{
-                                width: "clamp(150px, 18.4vw, 235px)",
-                                height: "clamp(35px, 3.9vw, 50px)",
-                                fontSize: "clamp(14px, 1.56vw, 20px)"
-                            }}
-                        >
-                            join now →
-                        </Link>
-                    </div>
-                </div>
-            </section>
+        {/* Text + button */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <h1
+            className="text-white font-bold leading-tight"
+            style={{
+                fontSize: "clamp(32px, 5vw, 64px)",
+                textShadow: "0 4px 20px rgba(0,0,0,0.6)",
+                letterSpacing: "0.02em",
+            }}
+            >
+            INSTITUTE FOR <br />
+            ADVANCED <br />
+            AEROSPACE <br />
+            CONCEPTS
+            </h1>
+
+            <Link
+            href="/join"
+            className="mt-6 inline-flex items-center justify-center border border-white rounded-lg text-white hover:bg-white hover:text-black transition"
+            style={{ width: "160px", height: "35px" }}
+            >
+            join now →
+            </Link>
+        </div>
+        </section>
 
             {/* our mission */}
             <section className="relative bg-black" style={{ paddingTop: "56.25%" }}>
@@ -241,7 +305,7 @@ export default function HomePage() {
                                 style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>Join Our Team</p>
                             <div className="mt-[16px]">
                                 <Link
-                                    href="/Join"
+                                    href="/join"
                                     className="inline-flex items-center justify-center border border-white/50 bg-[#171717] text-white/50 text-center hover:text-white hover:border-white"
                                     style={{
                                         width: "clamp(100px, 11.4vw, 146px)",
