@@ -10,6 +10,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
+@layer utilities {
+  .font-duru {
+    font-family: var(--font-duru);
+  }
+}
 
 body {
   background: var(--background);

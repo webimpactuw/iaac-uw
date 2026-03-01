@@ -1,10 +1,16 @@
-import { Inter } from "next/font/google";
+import { Inter, Duru_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
 });
+
+const duru = Duru_Sans({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-duru",
+})
 
 export const metadata = {
   title: "IAAC",
@@ -13,7 +19,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={` ${duru.variable}`}>
       <body className={inter.className}>
         <Navbar />
         {children}
