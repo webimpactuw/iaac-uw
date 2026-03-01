@@ -82,29 +82,63 @@ export default function HomePage() {
             </section>
 
             {/* our mission */}
-            <section className="relative bg-black" style={{ paddingTop: "56.25%" }}>
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-[5%]">
-                    <p className="text-white font-normal text-center leading-normal"
+            <section className="relative bg-black py-24">
+                <div className="max-w-6xl max-auto px-8 flex flex-col md:flex-row justify-between gap-16">
+                    {/* left column */}
+                    <div className="max-w-xl">
+                        <p className="text-white font-semibold leading-normal"
+                            style={{ fontSize: "clamp(28px, 3.1vw, 40px)" }}>
+                            OUR MISSION
+                        </p>
+
+                        <p className="text-white/80 mt-8 leading-relaxed"
+                            style={{ fontSize: "clamp(14px, 1.56vw, 20px)", lineHeight: "1.4" }}>
+                            The mission of Institute for Advanced Aerospace Concepts (IAAC) is to advance student-led aerospace innovation through ambitious, technically rigorous projects. IAAC exists to provide hands-on engineering experience while tackling complex challenges in rocketry and unmanned aerial systems.
+                        </p>
+
+                        <div className="mt-10">
+                            <Link
+                                href="/about"
+                                className="inline-flex items-center justify-center border border-white/40 text-white/80 hover:border-white hover:text-white transition-colors duration-200 px-6 py-2 rounded-md"
+                                style={{
+                                    width: "clamp(150px, 18.4vw, 235px)",
+                                    height: "clamp(35px, 3.9vw, 50px)",
+                                    fontSize: "clamp(14px, 1.56vw, 20px)"
+                                }}
+                            >
+                                learn more →
+                            </Link>
+                        </div>
+                    </div>
+                    {/* right column */}
+                    <div className="w-64 md:w-80 flex justify-center">
+                        <img
+                            src="/rocket.png"
+                            alt="Vector illustration of a rocket"
+                            className="w-full h-auto object-contain"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* join our team */}
+            <section className="relative bg-[#191919]" style={{ paddingTop: "33.75%" }}>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <p className="text-white text-center leading-normal"
                         style={{ fontSize: "clamp(24px, 3.1vw, 40px)" }}>
-                        Our Mission
+                        JOIN OUR TEAM
                     </p>
-
-                    <p className="text-white text-center mt-[4%] max-w-[790px] w-[62%]"
-                        style={{ fontSize: "clamp(14px, 1.56vw, 20px)", lineHeight: "1.4" }}>
-                        The mission of Institute for Advanced Aerospace Concepts (IAAC) is to advance student-led aerospace innovation through ambitious, technically rigorous projects. IAAC exists to provide hands-on engineering experience while tackling complex challenges in rocketry and unmanned aerial systems.
-                    </p>
-
                     <div className="mt-[4%]">
                         <Link
-                            href="/about"
+                            href="/apply"
                             className="flex items-center justify-center border border-white bg-[#171717] text-white text-center hover:bg-white hover:text-black"
                             style={{
                                 width: "clamp(150px, 18.4vw, 235px)",
-                                height: "clamp(35px, 3.9vw, 50px)",
+                                height: "clamp(38px, 4.4vw, 56px)",
                                 fontSize: "clamp(14px, 1.56vw, 20px)"
                             }}
                         >
-                            learn more →
+                            join now →
                         </Link>
                     </div>
                 </div>
@@ -177,28 +211,8 @@ export default function HomePage() {
                             learn more →
                         </Link>
                     </div>
-                </div>
-            </section>
+                    <div>
 
-            {/* join our team */}
-            <section className="relative bg-[#191919]" style={{ paddingTop: "33.75%" }}>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <p className="text-white text-center leading-normal"
-                        style={{ fontSize: "clamp(24px, 3.1vw, 40px)" }}>
-                        JOIN OUR TEAM
-                    </p>
-                    <div className="mt-[4%]">
-                        <Link
-                            href="/apply"
-                            className="flex items-center justify-center border border-white bg-[#171717] text-white text-center hover:bg-white hover:text-black"
-                            style={{
-                                width: "clamp(150px, 18.4vw, 235px)",
-                                height: "clamp(38px, 4.4vw, 56px)",
-                                fontSize: "clamp(14px, 1.56vw, 20px)"
-                            }}
-                        >
-                            join now →
-                        </Link>
                     </div>
                 </div>
             </section>
