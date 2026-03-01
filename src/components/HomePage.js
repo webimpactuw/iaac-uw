@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 function useRevealOnScroll(threshold = 0.2) {
   const ref = useRef(null);
@@ -65,6 +66,11 @@ export default function HomePage() {
     const [projectsRef, projectsShown] = useRevealOnScroll(0.25);
     const [joinRef, joinShown] = useRevealOnScroll(0.25);
     const [footerRef, footerShown] = useRevealOnScroll(0.1);
+
+    const RocketAnimationDelay = 1;
+    const RocketAnimationDuration = 0.8;
+
+
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -141,7 +147,7 @@ export default function HomePage() {
             className="relative w-full overflow-hidden bg-black"
             style={{ height: "calc(100vh - 60px)" }}
         >
-            {/* Sky */}
+            {/* commented this out for now while trying to implement animation of multiple clouds/smoke/rocket layers like in the figma
             <img
                 src="/sky.png"
                 alt=""
@@ -152,7 +158,7 @@ export default function HomePage() {
                 }}
             />
 
-            {/* Background clouds */}
+            
             <img
                 src="/background.png"
                 alt=""
@@ -164,7 +170,7 @@ export default function HomePage() {
                 }}
             />
 
-            {/* Foreground rocket + clouds */}
+            
             <img
                 src="/foreground.png"
                 alt=""
@@ -174,10 +180,96 @@ export default function HomePage() {
                     opacity: heroRevealed ? 1 : 0,
                     transition: "opacity 650ms ease, transform 900ms cubic-bezier(0.22, 1, 0.36, 1)",
                 }}
+            />*/}
+
+            <img
+                src="/sky.png"
+                alt="Could not load Sky"
+                className="absolute inset-0 w-full h-full object-cover"
             />
+            <motion.img
+                src="/cloud 1.png"
+                alt="Could not load Cloud 1"
+                className="absolute inset-0 w-full h-full object-cover"
+                initial={{y: 0 }}
+                animate={{y: -100 }}
+                transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
+                >
+            </motion.img>
+            <motion.img
+                src="/cloud 2.png"
+                alt="Could not load Cloud 2"
+                className="absolute top-1/4 left-0 w-1/2 h-2/3 object-cover"
+                initial={{y: 0 }}
+                animate={{y: -100 , x:-100}}
+                transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
+                >
+            </motion.img>
+            <motion.img
+                src="/cloud 3.png"
+                alt="Could not load Cloud 3"
+                className="absolute top-1/2 right-0 w-1/2 h-1/2 object-cover"
+                initial={{y: 0 }}
+                animate={{y: -200 , x:100}}
+                transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
+                >
+            </motion.img>
+
+            <motion.img
+                src="/rocket ship.png"
+                alt="Could not load Rocket"
+                className="absolute bottom-0 right-1/4 w-2/10 h-11/10 object-cover"
+                initial={{y: 800, x:-50}}
+                animate={{y: 0, x:0}}
+                transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
+                >
+            </motion.img>
+            <motion.img
+                src="/small smoke cloud.png"
+                alt="Could not load Smoke Cloud"
+                className="absolute bottom-0 left-11/30 w-1/3 h-2/3 object-cover"
+                initial={{y:700, x:100}}
+                animate={{y: 200, x:0}}
+                transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
+                >
+            </motion.img>
+            <motion.img
+                src="/front smoke cloud.png"
+                alt="Could not load smoke"
+                className="absolute bottom-0 right-0 w-2/3 h-2/3 object-cover"
+                initial={{y:700}}
+                animate={{y: 200}}
+                transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
+                >
+            </motion.img>
+            <motion.img
+                src="/big smoke cloud (left).png"
+                alt="Could not load smoke"
+                className="absolute left-0 bottom-0 w-4/5 h-8/5 object-cover"
+                initial={{x:0, y:800}}
+                animate={{x:-500, y:50}}
+                transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
+                >
+            </motion.img>
+            <motion.img
+                src="/big smoke cloud (right).png"
+                alt="Could not load smoke"
+                className="absolute right-0 bottom-0 w-1/2 h-full object-cover"
+                initial={{x:50, y:800}}
+                animate={{x: 200, y:200}}
+                transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
+                >
+            </motion.img>
+
+        
 
             {/* Text + button */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <motion.div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+            
+            initial={{ opacity: 0, y: 800, x:50 }}
+            animate={{ opacity: 1, y: 0 , x:0}}
+            transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
+            >
                 <h1
                 className="text-white font-bold leading-tight"
                 style={{
@@ -199,7 +291,7 @@ export default function HomePage() {
                     >
                 join now →
                 </Link>
-            </div>
+            </motion.div>
         </section>
 
             {/* Mission */}
