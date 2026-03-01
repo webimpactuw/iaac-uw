@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 
 function useRevealOnScroll(threshold = 0.2) {
   const ref = useRef(null);
@@ -65,8 +65,6 @@ export default function HomePage() {
     const [projectsRef, projectsShown] = useRevealOnScroll(0.25);
     const [joinRef, joinShown] = useRevealOnScroll(0.25);
     const [footerRef, footerShown] = useRevealOnScroll(0.1);
-
-
 
     useEffect(() => {
         const timer = setInterval(() => {
