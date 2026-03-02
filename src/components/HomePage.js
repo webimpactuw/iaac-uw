@@ -81,37 +81,34 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* our mission */}
-            <section className="relative bg-black py-24">
-                <div className="max-w-6xl max-auto px-8 flex flex-col md:flex-row justify-between gap-16">
+            {/* OUR MISSION */}
+            <section className="relative flex justify-center bg-black py-16 md:py-24 px-6 md:px-8">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
                     {/* left column */}
-                    <div className="max-w-xl">
-                        <p className="text-white font-semibold leading-normal"
-                            style={{ fontSize: "clamp(28px, 3.1vw, 40px)" }}>
+                    <div className="max-w-xl text-center md:text-left flex flex-col gap-10">
+                        <h2 className="text-white font-semibold text-3xl md:text-4xl lg:text-5xl">
                             OUR MISSION
+                        </h2>
+
+                        <p className="text-white/80 mt-6 md:mt-8 text-base md:text-lg leading-relaxed">
+                            The mission of the Institute for Advanced Aerospace Concepts (IAAC) is to
+                            advance student-led aerospace innovation through ambitious, technically
+                            rigorous projects. IAAC provides hands-on engineering experience while
+                            tackling complex challenges in rocketry and unmanned aerial systems.
                         </p>
 
-                        <p className="text-white/80 mt-8 leading-relaxed"
-                            style={{ fontSize: "clamp(14px, 1.56vw, 20px)", lineHeight: "1.4" }}>
-                            The mission of Institute for Advanced Aerospace Concepts (IAAC) is to advance student-led aerospace innovation through ambitious, technically rigorous projects. IAAC exists to provide hands-on engineering experience while tackling complex challenges in rocketry and unmanned aerial systems.
-                        </p>
-
-                        <div className="mt-10">
+                        <div className="mt-8 md:mt-10">
                             <Link
                                 href="/about"
-                                className="inline-flex items-center justify-center border border-white/40 text-white/80 hover:border-white hover:text-white transition-colors duration-200 px-6 py-2 rounded-md"
-                                style={{
-                                    width: "clamp(150px, 18.4vw, 235px)",
-                                    height: "clamp(35px, 3.9vw, 50px)",
-                                    fontSize: "clamp(14px, 1.56vw, 20px)"
-                                }}
+                                className="inline-flex items-center justify-center border border-white/40 text-white/80 hover:border-white hover:text-white transition-colors duration-200 px-6 py-2 rounded-md text-sm md:text-base"
                             >
-                                learn more →
+                                Learn more →
                             </Link>
                         </div>
                     </div>
+
                     {/* right column */}
-                    <div className="w-64 md:w-80 flex justify-center">
+                    <div className="w-48 sm:w-64 md:w-80 flex justify-center mt-10 md:mt-0">
                         <img
                             src="/rocket.png"
                             alt="Vector illustration of a rocket"
@@ -120,7 +117,6 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
-
             {/* join our team */}
             <section className="relative bg-[#191919]" style={{ paddingTop: "33.75%" }}>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
