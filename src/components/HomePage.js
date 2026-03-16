@@ -259,9 +259,7 @@ export default function HomePage() {
                 animate={{x: 200, y:200}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
                 >
-            </motion.img>
-
-        
+            </motion.img>        
 
             {/* Text + button */}
             <motion.div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
@@ -295,33 +293,80 @@ export default function HomePage() {
         </section>
 
             {/* Mission */}
-            <section 
-                ref={missionRef}
-                className="relative bg-black transition-all duration-700 ease-out"
-                style={{ paddingTop: "56.25%", opacity: missionShown ? 1 : 0, transform: missionShown ? "translateY(0px)" : "translateY(28px)" }}
-            >
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-[5%]">
-                    <p className="text-white font-normal text-center leading-normal"
+            <motion.section viewport={{ once: true }} className="relative flex justify-center bg-black py-16 md:py-24 px-6 md:px-8">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                    {/* left column */}
+                    <div className="max-w-xl text-center md:text-left flex flex-col gap-10">
+                        <motion.h2
+                            initial={{ y: 100 }}
+                            whileInView={{ y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            className="text-white font-semibold text-3xl md:text-4xl lg:text-5xl">
+                            OUR MISSION
+                        </motion.h2>
+
+                        <motion.p
+                            initial={{ y: 100 }}
+                            whileInView={{ y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.2, ease: "easeOut", delay: 0.1 }}
+                            className="text-white/80 mt-6 md:mt-8 text-base md:text-lg leading-relaxed">
+                            The mission of the Institute for Advanced Aerospace Concepts (IAAC) is to
+                            advance student-led aerospace innovation through ambitious, technically
+                            rigorous projects. IAAC provides hands-on engineering experience while
+                            tackling complex challenges in rocketry and unmanned aerial systems.
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ y: 100 }}
+                            whileInView={{ y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.2, ease: "easeOut", delay: 0.2 }}
+                            className="mt-8 md:mt-10"
+                        >
+                            <Link
+                                href="/about"
+                                className="inline-flex items-center justify-center border border-white/40 text-white/80 hover:border-white hover:text-white transition-colors duration-200 px-6 py-2 rounded-md text-sm md:text-base"
+                            >
+                                Learn more →
+                            </Link>
+                        </motion.div>
+                    </div>
+
+                    {/* right column */}
+                    <motion.div
+                        initial={{ y: 100 }}
+                        whileInView={{ y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, ease: "easeOut", delay: 0.3 }}
+                        className="w-48 sm:w-64 md:w-80 flex justify-center mt-10 md:mt-0">
+                        <img
+                            src="/rocket.png"
+                            alt="Vector illustration of a rocket"
+                            className="w-full h-auto object-contain"
+                        />
+                    </motion.div>
+                </div>
+            </motion.section>
+            {/* join our team */}
+            <section className="relative bg-[#191919]" style={{ paddingTop: "33.75%" }}>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <p className="text-white text-center leading-normal"
                         style={{ fontSize: "clamp(24px, 3.1vw, 40px)" }}>
-                        Our Mission
+                        JOIN OUR TEAM
                     </p>
-
-                    <p className="text-white text-center mt-[4%] max-w-[790px] w-[62%]"
-                        style={{ fontSize: "clamp(14px, 1.56vw, 20px)", lineHeight: "1.4" }}>
-                        The mission of Institute for Advanced Aerospace Concepts (IAAC) is to advance student-led aerospace innovation through ambitious, technically rigorous projects. IAAC exists to provide hands-on engineering experience while tackling complex challenges in rocketry and unmanned aerial systems.
-                    </p>
-
                     <div className="mt-[4%]">
                         <Link
-                            href="/about"
+                            href="/apply"
                             className="flex items-center justify-center border border-white bg-[#171717] text-white text-center hover:bg-white hover:text-black"
                             style={{
                                 width: "clamp(150px, 18.4vw, 235px)",
-                                height: "clamp(35px, 3.9vw, 50px)",
+                                height: "clamp(38px, 4.4vw, 56px)",
                                 fontSize: "clamp(14px, 1.56vw, 20px)"
                             }}
                         >
-                            learn more →
+                            join now →
                         </Link>
                     </div>
                 </div>
@@ -364,8 +409,7 @@ export default function HomePage() {
                         join now →
                     </Link>
                     </div>
-                </div>
-            </section>
+                    <div>
 
             {/* projects: rocketry / drones */}
                 <section
