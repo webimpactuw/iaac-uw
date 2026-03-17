@@ -259,7 +259,9 @@ export default function HomePage() {
                 animate={{x: 200, y:200}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
                 >
-            </motion.img>        
+            </motion.img>
+
+        
 
             {/* Text + button */}
             <motion.div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
@@ -349,28 +351,6 @@ export default function HomePage() {
                     </motion.div>
                 </div>
             </motion.section>
-            {/* join our team */}
-            <section className="relative bg-[#191919]" style={{ paddingTop: "33.75%" }}>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <p className="text-white text-center leading-normal"
-                        style={{ fontSize: "clamp(24px, 3.1vw, 40px)" }}>
-                        JOIN OUR TEAM
-                    </p>
-                    <div className="mt-[4%]">
-                        <Link
-                            href="/apply"
-                            className="flex items-center justify-center border border-white bg-[#171717] text-white text-center hover:bg-white hover:text-black"
-                            style={{
-                                width: "clamp(150px, 18.4vw, 235px)",
-                                height: "clamp(38px, 4.4vw, 56px)",
-                                fontSize: "clamp(14px, 1.56vw, 20px)"
-                            }}
-                        >
-                            join now →
-                        </Link>
-                    </div>
-                </div>
-            </section>
 
              {/* Join our Team */}
             <section
@@ -409,7 +389,8 @@ export default function HomePage() {
                         join now →
                     </Link>
                     </div>
-                    <div>
+                </div>
+            </section>
 
             {/* projects: rocketry / drones */}
                 <section
