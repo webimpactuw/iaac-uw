@@ -70,6 +70,40 @@ export default function HomePage() {
     const RocketAnimationDelay = 1;
     const RocketAnimationDuration = 0.8;
 
+    // Responsive animation values based on viewport height
+    const [animationValues, setAnimationValues] = useState({
+        rocketInitial: 800,
+        smallSmokeInitial: 700,
+        smallSmokeAnimate: 200,
+        frontSmokeInitial: 700,
+        frontSmokeAnimate: 200,
+        bigSmokeLeftInitial: 800,
+        bigSmokeLeftAnimate: 50,
+        bigSmokeRightInitial: 800,
+        bigSmokeRightAnimate: 200,
+    });
+
+    useEffect(() => {
+        function updateAnimationValues() {
+            const vh = window.innerHeight;
+            setAnimationValues({
+                rocketInitial: vh * 1.1,
+                smallSmokeInitial: vh * 0.9,
+                smallSmokeAnimate: vh * 0.25,
+                frontSmokeInitial: vh * 0.9,
+                frontSmokeAnimate: vh * 0.25,
+                bigSmokeLeftInitial: vh * 1,
+                bigSmokeLeftAnimate: vh * 0.06,
+                bigSmokeRightInitial: vh * 1,
+                bigSmokeRightAnimate: vh * 0.25,
+            });
+        }
+
+        updateAnimationValues();
+        window.addEventListener('resize', updateAnimationValues);
+        return () => window.removeEventListener('resize', updateAnimationValues);
+    }, []);
+
 
 
     useEffect(() => {
@@ -190,7 +224,7 @@ export default function HomePage() {
             <motion.img
                 src="/cloud 1.png"
                 alt="Could not load Cloud 1"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute right-0 top-0 w-full h-full object-cover object-right"
                 initial={{y: 0 }}
                 animate={{y: -100 }}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
@@ -199,7 +233,7 @@ export default function HomePage() {
             <motion.img
                 src="/cloud 2.png"
                 alt="Could not load Cloud 2"
-                className="absolute top-1/4 left-0 w-1/2 h-2/3 object-cover"
+                className="absolute top-1/4 left-0 w-1/2 h-2/3 object-contain object-center"
                 initial={{y: 0 }}
                 animate={{y: -100 , x:-100}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
@@ -208,7 +242,7 @@ export default function HomePage() {
             <motion.img
                 src="/cloud 3.png"
                 alt="Could not load Cloud 3"
-                className="absolute top-1/2 right-0 w-1/2 h-1/2 object-cover"
+                className="absolute top-1/2 right-0 w-1/2 h-1/2 object-contain object-center"
                 initial={{y: 0 }}
                 animate={{y: -200 , x:100}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
@@ -218,8 +252,8 @@ export default function HomePage() {
             <motion.img
                 src="/rocket ship.png"
                 alt="Could not load Rocket"
-                className="absolute bottom-0 right-1/4 w-2/10 h-11/10 object-cover"
-                initial={{y: 800, x:-50}}
+                className="absolute bottom-0 right-1/4 w-2/10 h-11/10 object-contain object-center"
+                initial={{y: animationValues.rocketInitial, x:-50}}
                 animate={{y: 0, x:0}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
                 >
@@ -227,36 +261,36 @@ export default function HomePage() {
             <motion.img
                 src="/small smoke cloud.png"
                 alt="Could not load Smoke Cloud"
-                className="absolute bottom-0 left-11/30 w-1/3 h-2/3 object-cover"
-                initial={{y:700, x:100}}
-                animate={{y: 200, x:0}}
+                className="absolute bottom-0 left-11/30 w-1/3 h-2/3 min-w-[120px] min-h-[120px] object-contain object-center z-10"
+                initial={{y: animationValues.smallSmokeInitial, x:-100}}
+                animate={{y: animationValues.smallSmokeAnimate, x:-50}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
                 >
             </motion.img>
             <motion.img
                 src="/front smoke cloud.png"
                 alt="Could not load smoke"
-                className="absolute bottom-0 right-0 w-2/3 h-2/3 object-cover"
-                initial={{y:700}}
-                animate={{y: 200}}
+                className="absolute bottom-0 right-0 w-2/3 h-2/3 min-w-[150px] min-h-[150px] object-contain object-center"
+                initial={{y: animationValues.frontSmokeInitial}}
+                animate={{y: animationValues.frontSmokeAnimate}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
                 >
             </motion.img>
             <motion.img
                 src="/big smoke cloud (left).png"
                 alt="Could not load smoke"
-                className="absolute left-0 bottom-0 w-4/5 h-8/5 object-cover"
-                initial={{x:0, y:800}}
-                animate={{x:-500, y:50}}
+                className="absolute left-0 bottom-0 w-4/5 h-8/5 min-w-[300px] min-h-[300px] object-contain object-center z-20"
+                initial={{x:100, y: animationValues.bigSmokeLeftInitial}}
+                animate={{x:-200, y: animationValues.bigSmokeLeftAnimate}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
                 >
             </motion.img>
             <motion.img
                 src="/big smoke cloud (right).png"
                 alt="Could not load smoke"
-                className="absolute right-0 bottom-0 w-1/2 h-full object-cover"
-                initial={{x:50, y:800}}
-                animate={{x: 200, y:200}}
+                className="absolute right-0 bottom-0 w-1/2 h-full min-w-[150px] min-h-[150px] object-contain object-center"
+                initial={{x:50, y: animationValues.bigSmokeRightInitial}}
+                animate={{x: 200, y: animationValues.bigSmokeRightAnimate}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
                 >
             </motion.img>
@@ -264,7 +298,7 @@ export default function HomePage() {
         
 
             {/* Text + button */}
-            <motion.div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+            <motion.div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-30"
             
             initial={{ opacity: 0, y: 800, x:50 }}
             animate={{ opacity: 1, y: 0 , x:0}}
