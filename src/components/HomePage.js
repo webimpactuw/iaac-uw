@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
+import Join from './Join.js';
+
 function useRevealOnScroll(threshold = 0.2) {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);
@@ -351,46 +353,9 @@ export default function HomePage() {
                     </motion.div>
                 </div>
             </motion.section>
-
-             {/* Join our Team */}
-            <section
-                ref={joinRef}
-                className="relative bg-[#191919] transition-all duration-700 ease-out flex items-center justify-center"
-                style={{
-                    minHeight: "100vh",
-                    opacity: joinShown ? 1 : 0,
-                    transform: joinShown ? "translateY(0px)" : "translateY(28px)",
-                }}
-                >
-                <div className="w-[92%] max-w-[1400px] rounded-[28px] border border-white/70 px-10 py-24 text-center">
-                    <p
-                    className="text-white font-bold"
-                    style={{ fontSize: "clamp(36px, 4vw, 64px)" }}
-                    >
-                    JOIN OUR TEAM
-                    </p>
-
-                    <p className="text-white/85 mt-10" style={{ fontSize: "clamp(16px, 1.7vw, 22px)" }}>
-                    Rolling applications
-                    <br />
-                    Expected commitment of 6+ hours per week
-                    </p>
-
-                    <div className="mt-14">
-                    <Link
-                        href="/join"
-                        className="inline-flex items-center justify-center rounded-xl border border-white/40 bg-black/40 text-white hover:bg-black/60 transition"
-                        style={{
-                        width: "clamp(160px, 18vw, 240px)",
-                        height: "clamp(44px, 4.5vw, 60px)",
-                        fontSize: "clamp(14px, 1.4vw, 18px)",
-                        }}
-                    >
-                        join now →
-                    </Link>
-                    </div>
-                </div>
-            </section>
+            
+            {/* replaced with Join component */}
+            <Join joinRef={joinRef} joinShown={joinShown} />
 
             {/* projects: rocketry / drones */}
                 <section
