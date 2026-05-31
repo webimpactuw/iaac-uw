@@ -2,8 +2,26 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="relative bg-black" style={{ paddingTop: "39%" }}>
+        <footer className="relative bg-[#191919] pb-20" style={{ paddingTop: "39%" }}>
                 <div className="absolute inset-0">
+                    <div className="text-center py-20">
+                        <h1 className="font-bold text-white/75 mb-[16px] pb-[50px]"
+                            style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>
+                            OUR SPONSORS
+                        </h1>
+
+                        <div className="flex items-center justify-center"
+                            style={{ gap: "clamp(25px, 5.9vw, 75px)" }}>
+                            <img src="/sponsor1.svg" alt="Sponsor"
+                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
+                            <img src="/sponsor4.svg" alt="Sponsor"
+                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
+                            <img src="/sponsor3.svg" alt="Sponsor"
+                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
+                            <img src="/sponsor2.svg" alt="Sponsor"
+                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
+                        </div>
+                    </div>
                     <div className="flex justify-between px-[14%] pt-[5%]">
                         <div className="text-center">
                             <p className="font-bold text-white/75 mb-2"
@@ -11,17 +29,19 @@ export default function Footer() {
                             <div className="flex flex-col gap-[20px] text-white/50 mt-[16px]"
                                 style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>
                                 <Link href="/" className="hover:text-white">Home</Link>
+                                <Link href="/join" className="hover:text-white">Join</Link>
                                 <Link href="/about" className="hover:text-white">About</Link>
-                                <Link href="/projects" className="hover:text-white">Projects</Link>
-                                <Link href="/apply" className="hover:text-white">Apply</Link>
                             </div>
                         </div>
 
                         <div className="text-center">
                             <p className="font-bold text-white/75 mb-2"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>Socials</p>
-                            <p className="text-white/50 mt-[16px]"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>to come</p>
+                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>Projects</p>
+                            <div className="flex flex-col gap-[20px] text-white/50 mt-[16px]"
+                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>
+                                <Link href="/projects/rocketry" className="hover:text-white">Rocketry</Link>
+                                <Link href="/projects/drones" className="hover:text-white">Drones</Link>
+                            </div>
                         </div>
 
                         <div className="text-center">
@@ -50,24 +70,6 @@ export default function Footer() {
                                     join now →
                                 </Link>
                             </div>
-                        </div>
-                    </div>
-
-                    <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 text-center">
-                        <p className="font-bold text-white/75 mb-[16px]"
-                            style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>
-                            OUR SPONSORS
-                        </p>
-                        <div className="flex items-center justify-center"
-                            style={{ gap: "clamp(25px, 5.9vw, 75px)" }}>
-                            <img src="/sponsor1.svg" alt="Sponsor"
-                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
-                            <img src="/sponsor4.svg" alt="Sponsor"
-                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
-                            <img src="/sponsor3.svg" alt="Sponsor"
-                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
-                            <img src="/sponsor2.svg" alt="Sponsor"
-                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
                         </div>
                     </div>
                 </div>

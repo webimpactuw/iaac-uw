@@ -3,6 +3,9 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
+import Join from './Join.js';
+import Footer from './Footer.js';
+
 function useRevealOnScroll(threshold = 0.2) {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);
@@ -385,46 +388,9 @@ export default function HomePage() {
                     </motion.div>
                 </div>
             </motion.section>
-
-             {/* Join our Team */}
-            <section
-                ref={joinRef}
-                className="relative bg-[#191919] transition-all duration-700 ease-out flex items-center justify-center"
-                style={{
-                    minHeight: "100vh",
-                    opacity: joinShown ? 1 : 0,
-                    transform: joinShown ? "translateY(0px)" : "translateY(28px)",
-                }}
-                >
-                <div className="w-[92%] max-w-[1400px] rounded-[28px] border border-white/70 px-10 py-24 text-center">
-                    <p
-                    className="text-white font-bold"
-                    style={{ fontSize: "clamp(36px, 4vw, 64px)" }}
-                    >
-                    JOIN OUR TEAM
-                    </p>
-
-                    <p className="text-white/85 mt-10" style={{ fontSize: "clamp(16px, 1.7vw, 22px)" }}>
-                    Rolling applications
-                    <br />
-                    Expected commitment of 6+ hours per week
-                    </p>
-
-                    <div className="mt-14">
-                    <Link
-                        href="/join"
-                        className="inline-flex items-center justify-center rounded-xl border border-white/40 bg-black/40 text-white hover:bg-black/60 transition"
-                        style={{
-                        width: "clamp(160px, 18vw, 240px)",
-                        height: "clamp(44px, 4.5vw, 60px)",
-                        fontSize: "clamp(14px, 1.4vw, 18px)",
-                        }}
-                    >
-                        join now →
-                    </Link>
-                    </div>
-                </div>
-            </section>
+            
+            {/* replaced with Join component */}
+            <Join joinRef={joinRef} joinShown={joinShown} />
 
             {/* projects: rocketry / drones */}
                 <section
@@ -497,97 +463,7 @@ export default function HomePage() {
                 </section>
 
             {/* Footer */}
-            <footer
-                ref={footerRef}
-                className="relative bg-black transition-all duration-700 ease-out"
-                style={{ paddingTop: "39%", opacity: footerShown ? 1 : 0, transform: footerShown ? "translateY(0px)" : "translateY(28px)" }}
-            >
-                <div className="absolute inset-0">
-                    <div className="flex justify-between px-[14%] pt-[5%]">
-                        <div className="text-center">
-                            <p className="font-bold text-white/75 mb-2"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>Navigation</p>
-                            <div className="flex flex-col gap-[20px] text-white/50 mt-[16px]"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>
-                                <Link href="/" className="hover:text-white">Home</Link>
-                                <Link href="/join" className="hover:text-white">Join</Link>
-                                <Link href="/about" className="hover:text-white">About</Link>
-                            </div>
-                        </div>
-
-                        <div className="text-center">
-                            <p
-                                className="font-bold text-white/75 mb-2"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}
-                            >
-                                Projects
-                            </p>
-                            <div
-                                className="flex flex-col gap-[20px] text-white/50 mt-[16px]"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}
-                            >
-                                <Link href="/projects/rocketry" className="hover:text-white">Rocketry</Link>
-                                <Link href="/projects/drones" className="hover:text-white">Drones</Link>
-                            </div>
-                        </div>
-
-                        <div className="text-center">
-                            <p className="font-bold text-white/75 mb-2"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>Socials</p>
-                            <p className="text-white/50 mt-[16px]"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>to come</p>
-                        </div>
-
-                        <div className="text-center">
-                            <p className="font-bold text-white/75 mb-2"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>Contact</p>
-                            <a href="mailto:leeale22@uw.edu"
-                                className="text-white/50 hover:text-white mt-[16px] block"
-                                style={{ fontSize: "clamp(12px, 1.56vw, 20px)" }}>
-                                leeale22@uw.edu
-                            </a>
-                        </div>
-
-                        <div className="text-center">
-                            <p className="font-bold text-white/75 mb-2"
-                                style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>Join Our Team</p>
-                            <div className="mt-[16px]">
-                                <Link
-                                    href="/join"
-                                    className="inline-flex items-center justify-center border border-white/50 bg-[#171717] text-white/50 text-center hover:text-white hover:border-white"
-                                    style={{
-                                        width: "clamp(100px, 11.4vw, 146px)",
-                                        height: "clamp(28px, 3.2vw, 41px)",
-                                        fontSize: "clamp(12px, 1.56vw, 20px)"
-                                    }}
-                                >
-                                    join now →
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    {/* Sponsors */}
-                    <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 text-center">
-                        <p className="font-bold text-white/75 mb-[16px]"
-                            style={{ fontSize: "clamp(14px, 1.56vw, 20px)" }}>
-                            OUR SPONSORS
-                        </p>
-                        <div className="flex items-center justify-center"
-                            style={{ gap: "clamp(25px, 5.9vw, 75px)" }}>
-                            <img src="/sponsor1.svg" alt="Sponsor"
-                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
-                            <img src="/sponsor4.svg" alt="Sponsor"
-                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
-                            <img src="/sponsor3.svg" alt="Sponsor"
-                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
-                            <img src="/sponsor2.svg" alt="Sponsor"
-                                style={{ width: "clamp(40px, 5.3vw, 68px)", height: "clamp(38px, 5.2vw, 66px)" }} />
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
+            <Footer />
+       </div>
     );
 }
