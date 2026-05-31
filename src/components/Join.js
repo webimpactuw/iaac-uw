@@ -8,7 +8,7 @@ export default function Join({ joinRef, joinShown }) {
     return (
         <section
             ref={joinRef}
-            className="relative bg-[#191919] transition-all duration-700 ease-out flex items-center justify-center"
+            className="relative bg-[#191919] transition-all duration-700 ease-out flex items-center justify-center pt-20"
             style={{
                 minHeight: "100vh",
                 opacity: joinShown ? 1 : 0,
