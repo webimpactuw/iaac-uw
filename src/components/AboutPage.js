@@ -38,21 +38,47 @@ export default function AboutPage() {
     return (
         <>
             <div className="flex flex-col justify-center items-center min-h-200 font-duru">
-                <h1 className="text-6xl py-15">ABOUT</h1>
-                <p className="max-w-7xl text-2xl px-40 py-20 text-center">
+                <motion.h1
+                    initial={{ y: 300, opacity: 0 }}
+                    whileInView={{ y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    animate={{ opacity: 1 }}
+                    className="text-6xl py-15 font-bold">
+                    ABOUT
+                </motion.h1>
+                <motion.p
+                    initial={{ y: 300, opacity: 0 }}
+                    whileInView={{ y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+                    animate={{ opacity: 1 }}
+                    className="max-w-7xl text-2xl px-40 py-20 text-center">
                     The Institute for Advanced Aerospace Concepts (IAAC) is a student-run aerospace organization focused on designing and building advanced aerospace systems. The organization brings together students interested in applying engineering, research, and systems thinking to real-world aerospace problems through collaborative, project-based work.
-                </p>
+                </motion.p>
             </div>
 
             <div className="flex flex-col justify-center items-center h-full font-duru bg-black py-20 pb-30">
-                <h1 className="text-6xl py-15 text-white">LEADERSHIP TEAM</h1>
+                <motion.h1
+                    initial={{ y: 400, opacity: 0 }}
+                    whileInView={{ y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    animate={{ opacity: 1 }}
+                    className="text-3xl md:text-6xl py-8 md:py-15 text-white font-bold text-center">LEADERSHIP TEAM</motion.h1>
                 {/* faces */}
-                <div className="flex flex-row justify-center w-full px-20 py-10 gap-30">
+                <motion.div
+                    initial={{ y: 300, opacity: 0 }}
+                    whileInView={{ y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+                    animate={{ opacity: 1 }}
+                    className="flex flex-col justify-center items-center md:flex-row w-full px-6 md:px-20 py-8 md:py-10 gap-12 md:gap-30">
 
                     {/* left column */}
-                    <div className="flex flex-col justify-center gap-50">
-                        <div className="flex flex-row items-center">
-                            <div className="w-35 h-35 flex-shrink-0">
+                    <div className="flex flex-col justify-center gap-12 md:gap-24">
+                        <div className="flex items-center gap-6 max-w-xl">
+                            <div className="w-24 h-24 md:w-35 md:h-35 flex-shrink-0">
                                 {/* image */}
                                 <Image
                                     src="/headshot.jpeg"
@@ -62,15 +88,15 @@ export default function AboutPage() {
                                     className="rounded-full aspect-square object-cover w-full h-full"
                                 />
                             </div>
-                            <div className="flex flex-col justify-start px-8 gap-3">
+                            <div className="flex flex-col gap-2 max-w-sm">
                                 {/* description */}
-                                <h2 className="text-xl">President</h2>
-                                <h3 className="text-2xl font-bold">Alexander Lee</h3>
-                                <p className="text-xl">Bio</p>
+                                <h2 className="text-lg md:text-xl">President</h2>
+                                <h3 className="text-xl md:text-2xl font-bold">Alexander Lee</h3>
+                                <p className="text-sm md:text-xl leading-relaxed">Bio</p>
                             </div>
                         </div>
-                        <div className="flex flex-row items-center">
-                            <div className="w-35 h-35 flex-shrink-0">
+                        <div className="flex items-center gap-6 max-w-xl">
+                            <div className="w-24 h-24 md:w-35 md:h-35 flex-shrink-0">
                                 {/* image */}
                                 <Image
                                     src="/headshot.jpeg"
@@ -80,15 +106,15 @@ export default function AboutPage() {
                                     className="rounded-full aspect-square object-cover w-full h-full"
                                 />
                             </div>
-                            <div className="flex flex-col justify-start px-8 gap-3">
+                            <div className="flex flex-col gap-2 max-w-sm">
                                 {/* description */}
-                                <h2 className="text-xl">Chief Engineer</h2>
-                                <h3 className="text-2xl font-bold">Andrew Tarmacs</h3>
-                                <p className="text-xl">Bio</p>
+                                <h2 className="text-lg md:text-xl">Chief Engineer</h2>
+                                <h3 className="text-xl md:text-2xl font-bold">Andrew Tarmacs</h3>
+                                <p className="text-sm md:text-xl leading-relaxed">Bio</p>
                             </div>
                         </div>
-                        <div className="flex flex-row items-center">
-                            <div className="w-35 h-35 flex-shrink-0">
+                        <div className="flex items-center gap-6 max-w-xl">
+                            <div className="w-24 h-24 md:w-35 md:h-35 flex-shrink-0">
                                 {/* image */}
                                 <Image
                                     src="/headshot.jpeg"
@@ -98,19 +124,19 @@ export default function AboutPage() {
                                     className="rounded-full aspect-square object-cover w-full h-full"
                                 />
                             </div>
-                            <div className="flex flex-col justify-start px-8 gap-3">
+                            <div className="flex flex-col gap-2 max-w-sm">
                                 {/* description */}
-                                <h2 className="text-xl">Treasurer</h2>
-                                <h3 className="text-2xl font-bold">Kyan West</h3>
-                                <p className="text-xl">Bio</p>
+                                <h2 className="text-lg md:text-xl">Treasurer</h2>
+                                <h3 className="text-xl md:text-2xl font-bold">Kyan West</h3>
+                                <p className="text-sm md:text-xl leading-relaxed">Bio</p>
                             </div>
                         </div>
                     </div>
 
                     {/* right column */}
-                    <div className="flex flex-col justify-center gap-50">
-                        <div className="flex flex-row items-center">
-                            <div className="w-35 h-35 flex-shrink-0">
+                    <div className="flex flex-col justify-center gap-12 md:gap-24">
+                        <div className="flex items-center gap-6 max-w-xl">
+                            <div className="w-24 h-24 md:w-35 md:h-35 flex-shrink-0">
                                 {/* image */}
                                 <Image
                                     src="/headshot.jpeg"
@@ -120,15 +146,15 @@ export default function AboutPage() {
                                     className="rounded-full aspect-square object-cover w-full h-full"
                                 />
                             </div>
-                            <div className="flex flex-col justify-start px-8 gap-3">
+                            <div className="flex flex-col gap-2 max-w-sm">
                                 {/* description */}
-                                <h2 className="text-xl">Vice President</h2>
-                                <h3 className="text-2xl font-bold">Dennis Ngo</h3>
-                                <p className="text-xl">Bio</p>
+                                <h2 className="text-lg md:text-xl">Vice President</h2>
+                                <h3 className="text-xl md:text-2xl font-bold">Dennis Ngo</h3>
+                                <p className="text-sm md:text-xl leading-relaxed">Bio</p>
                             </div>
                         </div>
-                        <div className="flex flex-row items-center">
-                            <div className="w-35 h-35 flex-shrink-0">
+                        <div className="flex items-center gap-6 max-w-xl">
+                            <div className="w-24 h-24 md:w-35 md:h-35 flex-shrink-0">
                                 {/* image */}
                                 <Image
                                     src="/headshot.jpeg"
@@ -138,15 +164,15 @@ export default function AboutPage() {
                                     className="rounded-full aspect-square object-cover w-full h-full"
                                 />
                             </div>
-                            <div className="flex flex-col justify-start px-8 gap-3">
+                            <div className="flex flex-col gap-2 max-w-sm">
                                 {/* description */}
-                                <h2 className="text-xl">Outreach Direction</h2>
-                                <h3 className="text-2xl font-bold">Collin Blair</h3>
-                                <p className="text-xl">Bio</p>
+                                <h2 className="text-lg md:text-xl">Outreach Direction</h2>
+                                <h3 className="text-xl md:text-2xl font-bold">Collin Blair</h3>
+                                <p className="text-sm md:text-xl leading-relaxed">Bio</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             <Join joinRef={joinRef} joinShown={joinShown} />
