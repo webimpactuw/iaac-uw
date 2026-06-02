@@ -80,7 +80,7 @@ export default function HomePage() {
         smallSmokeAnimate: 200,
         frontSmokeInitial: 700,
         frontSmokeAnimate: 200,
-        bigSmokeLeftInitial: 800,
+        bigSmokeLeftInitial: 1500,
         bigSmokeLeftAnimate: 50,
         bigSmokeRightInitial: 800,
         bigSmokeRightAnimate: 200,
@@ -283,7 +283,7 @@ export default function HomePage() {
                 src="/big smoke cloud (left).png"
                 alt="Could not load smoke"
                 className="absolute left-0 bottom-0 w-4/5 h-8/5 min-w-[300px] min-h-[300px] object-contain object-center z-20"
-                initial={{x:100, y: animationValues.bigSmokeLeftInitial}}
+                initial={{x:0, y: animationValues.bigSmokeLeftInitial}}
                 animate={{x:-200, y: animationValues.bigSmokeLeftAnimate}}
                 transition={{ duration: RocketAnimationDuration, delay: RocketAnimationDelay }}
                 >
