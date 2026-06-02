@@ -21,7 +21,7 @@ export default function Navbar() {
           <div className="flex items-center" style={{ gap: "40px" }}>
             {[
               { href: "/", label: "HOME" },
-              { href: "/join", label: "JOIN" },
+              { href: "https://docs.google.com/forms/d/e/1FAIpQLScHSikNpMdD6FApy4JMCLjQ46hPMN1rfdPQ4kDwX8d85rnB7w/viewform", label: "JOIN" },
               { href: "/about", label: "ABOUT" },
             ].map((item) => (
               <Link
