@@ -41,7 +41,8 @@ export default function Join({ joinRef, joinShown }) {
 
                 <div className="mt-14">
                     <Link
-                        href="/join"
+                        target="blank" 
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScHSikNpMdD6FApy4JMCLjQ46hPMN1rfdPQ4kDwX8d85rnB7w/viewform"
                         className="inline-flex items-center justify-center rounded-xl border border-white/40 bg-black/40 text-white hover:bg-black/60 transition"
                         style={{
                             width: "clamp(160px, 18vw, 240px)",

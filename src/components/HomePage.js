@@ -322,7 +322,8 @@ export default function HomePage() {
                 </h1>
 
                 <Link
-                    href="/join"
+                    target="blank" 
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScHSikNpMdD6FApy4JMCLjQ46hPMN1rfdPQ4kDwX8d85rnB7w/viewform"
                     className="mt-6 inline-flex items-center justify-center rounded-lg border border-white/30 bg-black/50 text-white hover:bg-black/70 transition"
                     style={{ width: "160px", height: "35px" }}
                     >
